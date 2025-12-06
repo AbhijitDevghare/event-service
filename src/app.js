@@ -37,7 +37,7 @@ const routes = require("./routes/v1/eventRoutes");
 app.use("/", routes);
 
 // Test route
-app.get("/", (req, res) => {
+app.get("/ping", (req, res) => {
   res.status(200).json({ message: "Event service active" });
 });
 
