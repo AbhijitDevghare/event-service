@@ -4,7 +4,7 @@ const { uploadMediaToCloudinary } = require("../middleware/uploadMediaToCloudina
 const { Op } = require("sequelize");
 const axios = require("axios");
 
-const rewardsBadgesService = "https://api.impactlog.me/rewards-badges/"
+const rewardsBadgesService = "https://api.impactlog.me/rewards-badges"
 const verificationService = "https://api.impactlog.me/verification"
 const userService = "https://api.impactlog.me/users/profile"
 
@@ -294,7 +294,7 @@ static async listEvents(query = {}) {
   // ------------------------------
   const { data } = await axios.get(`${rewardsBadgesService}/getBadges`);
   const badgeMap = Object.fromEntries(data.badges.map(b => [b.id, b.name]));
-
+  console.log("BADGES FETCHED")
   // ------------------------------
   // 2️⃣ Build query filters
   // ------------------------------
@@ -342,6 +342,7 @@ static async listEvents(query = {}) {
     }
   }
 
+  console.log("FICNIN EVENTS")
   // ------------------------------
   // 3️⃣ Fetch and enrich events
   // ------------------------------

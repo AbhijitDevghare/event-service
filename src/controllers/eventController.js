@@ -171,6 +171,7 @@ static async getPublishedEvents(req, res, next) {
   // List events
   static async listEvents(req, res, next) {
     try {
+      console.log("EVENT LIST REQUEST")
       const events = await EventService.listEvents(req.query || {});
       res.json(events);
     } catch (err) {
