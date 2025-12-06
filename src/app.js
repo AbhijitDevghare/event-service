@@ -32,14 +32,16 @@ app.use(helmet({
 
 app.set('trust proxy', 1);
 
-// ✅ Keep your route as-is
-const routes = require("./routes/v1/eventRoutes");
-app.use("/", routes);
 
 // Test route
 app.get("/ping", (req, res) => {
   res.status(200).json({ message: "Event service active" });
 });
+
+// ✅ Keep your route as-is
+const routes = require("./routes/v1/eventRoutes");
+app.use("/", routes);
+
 
 // Error middleware
 const errorMiddleware = require('./middleware/error.middleware');
